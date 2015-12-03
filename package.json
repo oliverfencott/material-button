@@ -1,0 +1,24 @@
+{
+  "name": "material-button",
+  "version": "0.0.0",
+  "description": "React implementation of Googles material design button",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel --presets es2015,react --watch src/ --out-dir lib/",
+    "prepublish": "babel --presets es2015,react src/ --out-dir lib/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliverfencott/material-button.git"
+  },
+  "author": "Oliver Fencott <oliverfencott@gmail.com> (http://fencott.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oliverfencott/material-button/issues"
+  },
+  "homepage": "https://github.com/oliverfencott/material-button#readme",
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
