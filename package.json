@@ -1,8 +1,8 @@
 {
   "name": "material-button",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "React implementation of Googles material design button",
-  "main": "index.js",
+  "main": "lib",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "babel --presets es2015,react --watch src/ --out-dir lib/",
