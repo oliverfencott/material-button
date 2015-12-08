@@ -1,6 +1,7 @@
 'use strict';
 
-import React from 'react/addons';
+import React from 'react';
+import merge from 'lodash.merge';
 
 import ButtonBase from './ButtonBase';
 
@@ -13,17 +14,23 @@ const defaultStyle = {
 const RaisedButton = React.createClass({
   getDefaultProps: function() {
     return {
-      style: {}
+      style: {},
+      label: '',
+      name: '',
+      value: '',
+      onClick: () => {}
     };
   },
 
   render: function() {
-    const {style, label, onClick} = this.props;
+    const {style, label, onClick, name, value} = this.props;
     return (
       <ButtonBase
         label={label}
-        style={Object.assign({}, defaultStyle, style)}
+        style={merge({}, defaultStyle, style)}
         onClick={onClick}
+        name={name}
+        value={value}
       />
     );
   }

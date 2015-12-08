@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import merge from 'lodash.merge';
 
 function mergeStyles(defaultStyle = {}, userStyle = {}) {
-  return Object.assign({}, defaultStyle, userStyle);
+  return merge({}, defaultStyle, userStyle);
 }
 
 const transition = 'all 100ms cubic-bezier(0.445, 0.05, 0.55, 0.95) 0ms';
@@ -20,7 +21,9 @@ const ButtonBase = React.createClass({
     return {
       onClick: () => {},
       label: '',
-      style: {}
+      style: {},
+      name: '',
+      value: ''
     };
   },
 
@@ -68,12 +71,12 @@ const ButtonBase = React.createClass({
 
   render: function() {
     const styles = this.getStyle();
-    const {label, onClick, style} = this.props;
+    const {label, style} = this.props;
 
     return (
       <div
         style={mergeStyles(styles.container, style.container)}
-        onClick={onClick}
+        onClick={this.handleClick}
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
         onMouseEnter={this.handleMouseEnter}
@@ -84,6 +87,11 @@ const ButtonBase = React.createClass({
         <div style={mergeStyles(styles.overlay, style.overlay)} />
       </div>
     );
+  },
+
+  handleClick: function() {
+    const {name, value, onClick} = this.props;
+    onClick(name, value);
   },
 
   handleMouseDown: function() {
